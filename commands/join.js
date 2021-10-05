@@ -1,12 +1,15 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { joinVoiceChannel, VoiceConnectionStatus, AudioPlayerStatus } = require('@discordjs/voice');
+const {SlashCommandBuilder} = require('@discordjs/builders');
+const {
+  joinVoiceChannel,
+  VoiceConnectionStatus,
+} = require('@discordjs/voice');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('join')
-    .setDescription('Join the vocal channel in which you\'re in'),
+      .setName('join')
+      .setDescription('Join the vocal channel in which you\'re in'),
   async execute(interaction, client) {
-    await interaction.reply({ content: 'Joining ...', ephemeral: true });
+    await interaction.reply({content: 'Joining ...', ephemeral: true});
 
     // console.log(client)
     const channel = await client.channels.fetch(interaction.channelId);
@@ -24,9 +27,5 @@ module.exports = {
     connection.on(VoiceConnectionStatus.Ready, (oldState, newState) => {
       console.log('Connection is in the Ready state!');
     });
-
-    /* player.on(AudioPlayerStatus.Playing, (oldState, newState) => {
-      console.log('Audio player is in the Playing state!');
-    }); */
   },
 };

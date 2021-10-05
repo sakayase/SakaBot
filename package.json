@@ -5,9 +5,22 @@
     "@discordjs/voice": "^0.6.0",
     "discord-api-types": "^0.22.0",
     "discord.js": "^13.1.0",
+    "ffmpeg-static": "^4.4.0",
     "libsodium-wrappers": "^0.7.9"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
-  }
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "name": "sakabot",
+  "version": "1.0.0",
+  "description": "Bot de Sakayase",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js",
+    "deploy": "node deployCommands.js"
+  },
+  "author": "",
+  "license": "ISC"
 }

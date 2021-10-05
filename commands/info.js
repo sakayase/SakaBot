@@ -1,9 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const {SlashCommandBuilder} = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('info')
-    .setDescription('Gives info'),
+      .setName('info')
+      .setDescription('Gives info'),
   async execute(interaction, client) {
     const channel = await client.channels.fetch(interaction.channelId);
     console.log(channel.type);

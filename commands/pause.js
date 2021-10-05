@@ -1,15 +1,16 @@
 const {SlashCommandBuilder} = require('@discordjs/builders');
 const {getVoiceConnection} = require('@discordjs/voice');
 
-
 module.exports = {
   data: new SlashCommandBuilder()
-      .setName('dc')
-      .setDescription('Disconnect the bot!'),
+      .setName('pause')
+      .setDescription('Pause the song'),
   async execute(interaction, player) {
     const connection = getVoiceConnection(interaction.guildId);
-    connection.destroy();
+    console.log(connection);
+    console.log(player);
+    player.pause();
 
-    await interaction.reply({content: 'Ciao bye bye!', ephemeral: true});
+    await interaction.reply({content: 'Pong!', ephemeral: true});
   },
 };
